@@ -2,7 +2,6 @@
     <p>
         <PostsCard  :qtdPosts = "nPosts"/>
         <posts-card :qtdPosts = "0" />
-        <RouterLink>teste</RouterLink>
     </p>
 </template>
 
@@ -23,8 +22,7 @@
         .then((response) => {
             response.json()
             .then((dados) => {
-            this.nPosts = dados.length;
-            console.log('Posts fetched: ', dados)
+                this.nPosts = dados.length;
             })
         })
         .catch((erro) => {

@@ -1,5 +1,6 @@
 <template>
     <h1>Página de posts</h1>
+    <a href="/">Voltar</a>
     <PostItem
         v-for="p in posts" :key="p.id"
         :post="p"
