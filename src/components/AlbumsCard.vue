@@ -1,16 +1,16 @@
 <template>
     <div class="card">
-        <h2 v-if="qtdPosts>0">{{ qtdPosts }} Posts</h2>
-        <h2 v-if="qtdPosts === 0">Não há posts</h2>
-        <a v-if="qtdPosts>0" href="posts">ver posts</a>
+        <h2 v-if="qtdAlbums>0">{{ qtdAlbums }} Albuns</h2>
+        <h2 v-if="qtdAlbums === 0">Não há albuns</h2>
+        <a v-if="qtdAlbums>0" href="/albuns">ver albuns</a>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'PostsCard',
+        name: 'AlbumsCard',
         props: {
-            qtdPosts: {
+            qtdAlbums: {
                 type: Number,
                 required: true,
             },

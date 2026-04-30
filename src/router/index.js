@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'posts',
       component: () => import('../pages/PostsPage.vue')
     },
+    {
+      path: '/albuns',
+      name: 'albums',
+      component: () => import('../pages/AlbumsPage.vue')
+    },
   ],
 })
 
