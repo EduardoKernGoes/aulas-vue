@@ -2,7 +2,7 @@
     <div class="card">
         <h2 v-if="qtdPosts>0">{{ qtdPosts }} Posts</h2>
         <h2 v-if="qtdPosts === 0">Não há posts</h2>
-        <a v-if="qtdPosts>0" href="posts">ver posts</a>
+        <a v-if="qtdPosts>0" href="/posts">Ver Posts</a>
     </div>
 </template>
 
