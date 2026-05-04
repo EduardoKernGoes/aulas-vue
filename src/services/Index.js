@@ -9,6 +9,10 @@ function getItems(item){
         case 'albums':
             link = 'https://jsonplaceholder.typicode.com/albums'
             break;
+        
+        case 'photos':
+            link = 'https://jsonplaceholder.typicode.com/photos'
+            break;
     }
     
     return new Promise((resolve, reject) => {
