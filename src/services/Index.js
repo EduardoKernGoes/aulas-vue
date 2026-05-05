@@ -17,6 +17,10 @@ function getItems(item){
         case 'users':
             link = 'https://jsonplaceholder.typicode.com/users'
             break;
+
+        case 'comments':
+            link = 'https://jsonplaceholder.typicode.com/comments'
+            break;
     }
     
     return new Promise((resolve, reject) => {
