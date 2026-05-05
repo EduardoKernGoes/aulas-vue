@@ -13,6 +13,10 @@ function getItems(item){
         case 'photos':
             link = 'https://jsonplaceholder.typicode.com/photos'
             break;
+
+        case 'users':
+            link = 'https://jsonplaceholder.typicode.com/users'
+            break;
     }
     
     return new Promise((resolve, reject) => {

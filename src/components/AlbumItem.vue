@@ -1,6 +1,7 @@
 <template>
     <div class="album-item text-center">
         <h2 class="text-center pt-4">{{album.id}} - {{ album.title }}</h2>
+        <h3>Autor: {{ user.name }}</h3>
         <div class="row justify-content-center px-5 pb-3">
             <AlbumPhoto
                 v-for="p in visiblePhotos" :key="p.id" :photo="p"
@@ -24,6 +25,7 @@
         },
         props: {
             album: Object,
+            user: String,
         },
         data(){
             return{
@@ -75,5 +77,9 @@
         border: none;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+    }
+
+    h3{
+        font-size: 1.2rem;
     }
 </style>

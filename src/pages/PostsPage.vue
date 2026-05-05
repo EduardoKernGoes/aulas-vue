@@ -1,10 +1,12 @@
 <template>
-    <h1>Página de posts</h1>
-    <a href="/">Voltar</a>
-    <PostItem @like="deuLike"
-        v-for="p in posts" :key="p.id"
-        :post="p"
-    />
+    <div v-if="!loading">
+        <h1>Página de posts</h1>
+        <a href="/" class="d-block">Voltar</a>
+        <PostItem @like="deuLike"
+            v-for="p in posts" :key="p.id"
+            :post="p" :user="searchUser(p)"
+        />
+    </div>
 </template>
 
 <script>
@@ -18,26 +20,35 @@
         data(){
             return{
                 posts: Array,
+                users: Array,
+                loading: true,
             }
         },
         mounted() {
-            getItems('posts')
-            .then((dados) => {
-                this.posts = dados;
+            Promise.all([
+                getItems('posts'),
+                getItems('users'),
+            ])
+            .then(([recivePosts, reciveUsers]) => {
+                this.posts = recivePosts;
+                this.users = reciveUsers;
+                this.loading = false;
             })
             .catch((error) => {
-                console.log(error);
-            });
+                console.error("Erro ao carregar dados:", error);
+                this.loading = false;
+            });            
         },
         methods: {
             deuLike(id){
-                
                 const post = this.posts.find((p) => p.id == id);
                 if (post){
                     post.like = true
                 }
-                
-                //alert(`Post com o id: ${id} recebeu um like`)
+            },
+
+            searchUser(post){
+                return this.users.find(user => user.id === post.userId);
             }
         },
     }
