@@ -1,8 +1,8 @@
 <template>
     <div v-if="!loading">
-        <div class="mb-2 mt-4">
+        <router-link class="mb-2 mt-4 btn not_line" :to="{name: 'user', params: {id: user.id, lastPage: 'posts'}}">
             <i class="bi bi-person-circle"></i><h3 class="d-inline ms-2">{{ user.name }}</h3>
-        </div>
+        </router-link>
         <div class="post-item mb-5">
             <div class="mx-3">
                 <h2>Titulo: {{ post.title }}</h2>
@@ -12,7 +12,7 @@
                         <span v-if="!post.comments">Ver Comentários</span>
                         <span v-else>Fechar Comentários</span>
                     </button>
-                    <button @click="cliqueLike()" class="btn btn-lg">
+                    <button @click="cliqueLike()" class="btn btn-lg  not_line">
                         <span v-if="!post.like" class="bi bi-hand-thumbs-up"></span>
                         <span v-else class="bi bi-hand-thumbs-up-fill"></span>
                     </button>
@@ -87,7 +87,7 @@
         font-size: 1.5rem;
     }
 
-    button{
+    .not_line{
         border: none;
     }
 </style>

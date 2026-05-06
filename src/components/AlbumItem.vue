@@ -1,7 +1,7 @@
 <template>
     <div class="album-item text-center">
         <h2 class="text-center pt-4">{{album.id}} - {{ album.title }}</h2>
-        <h3>Autor: {{ user.name }}</h3>
+        <h3>Autor: <router-link :to="{name: 'user', params: {id: user.id, lastPage: 'albums'}}">{{ user.name }}</router-link></h3>
         <div class="row justify-content-center px-5 pb-3">
             <AlbumPhoto
                 v-for="p in visiblePhotos" :key="p.id" :photo="p"

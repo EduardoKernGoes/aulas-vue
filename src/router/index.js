@@ -18,6 +18,12 @@ const router = createRouter({
       name: 'albums',
       component: () => import('../pages/AlbumsPage.vue')
     },
+    {
+      path: '/user:id:lastPage',
+      name: 'user',
+      component: () => import('../pages/UserPage.vue'),
+      props: true,
+    },
   ],
 })
 
